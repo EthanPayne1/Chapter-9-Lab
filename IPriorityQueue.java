@@ -1,4 +1,5 @@
 /**
+ * DONT EDIT THIS FILE
  * Methods for the priority queue
  * @param <T> T is a data type that must implement IPrioirty and IKey
  */

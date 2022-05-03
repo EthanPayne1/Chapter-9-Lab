@@ -1,5 +1,5 @@
 public class Student implements IPriority, IKey<Integer> {
-
+    /* DON"T EDIT THIS FILE*/
     private static boolean keyIsId = true;          // Should the id be used as the key
     private static boolean usePriority = false;     // Should we use the priority for the key
     private int id;                                 // id of student
