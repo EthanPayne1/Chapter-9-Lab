@@ -30,6 +30,7 @@ public class Heap<T extends IKey<Integer>> {
     }
     
     public Heap(Heap<T> h) {
+    
         this(h.heapType.equals("Max"));
         heap = new ArrayList<>(h.heap);
     }
