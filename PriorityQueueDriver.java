@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Set;
+
 
 /**
 * !public static void main(String[] args)
@@ -35,7 +35,7 @@ public class PriorityQueueDriver {
 
        //* Passes true to the Student.setUsePriority which makes boolean usePriortiy true
        Student.setUsePriority(true);
-       System.out.println("Students will register in the following order: " + '\n');
+       System.out.println("Students will register in the following order:");
        
        //* Outputs all of the students in priority order
        while(pQStudent.isEmpty() != true) {
@@ -43,7 +43,8 @@ public class PriorityQueueDriver {
        }
        //* Instainate a max heap for students 
        Heap<Student> studentHeap = new Heap<Student>(true);
-
+       
+       //* You can tell what this does 
        Student.setKeyIsId(false);
        Student.setUsePriority(false);
        readInData(studentHeap);
@@ -78,11 +79,11 @@ public class PriorityQueueDriver {
        
        //* Removes each student placing it in the array from the copy of studentHeap 
        while(heapStudent.isEmpty() != true) {
-        arrStudent[i] = heapStudent.remove(); i++;
+           arrStudent[i] = heapStudent.remove(); i++;
        }
        //* Returns the array Student[] arrStudent
        return arrStudent;
-   }
+    }
    
    private static void readInData(PriorityQueue<Student> students) {
         // Open text file
