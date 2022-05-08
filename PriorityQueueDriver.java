@@ -13,13 +13,14 @@ import java.util.Set;
 *   ✔ 1. Instantiate a PriorityQueue<Student>
 *   ✔ 2. Pass your PrioirtyQueue<Student> variable to readInData(...)
 *   ✔ 3. Pass the value true to the Student class method setUsePriority(...)
-*   Todo 4. Output all the students in priority order (See output example below).
-*   X 5. Instantiate a max heap for Student
-*   X 6. Pass false to the Student class method setKeyIsId(...)
-*   X 7. Pass false to the Student class method setUsePriority(...)
-*   X 8. Pass your Heap<Student> variable to readInData(...)
-*   X 9. Declare an array of Student
-*   X Pass your Heap<Student> variable to heapSort(...). Assign the return value to your Student array
+*   ✔ 4. Output all the students in priority order (See output example below).
+*   ✔ 5. Instantiate a max heap for Student
+*   ✔ 6. Pass false to the Student class method setKeyIsId(...)
+*   ✔ 7. Pass false to the Student class method setUsePriority(...)
+*   ✔ 8. Pass your Heap<Student> variable to readInData(...)
+*   ✔ 9. Declare an array of Student
+*   ✔ Pass your Heap<Student> variable to heapSort(...). Assign the return value to your Student array
+*   ✔ Output the students sorted by GPA in descending order.
 **/ 
 
 public class PriorityQueueDriver {
@@ -40,21 +41,48 @@ public class PriorityQueueDriver {
        while(pQStudent.isEmpty() != true) {
            System.out.println(pQStudent.pop());
        }
+       //* Instainate a max heap for students 
+       Heap<Student> studentHeap = new Heap<Student>(true);
 
+       Student.setKeyIsId(false);
+       Student.setUsePriority(false);
+       readInData(studentHeap);
 
+       //* Declares an array of students then passes maxStudent to heapSort assigns RV to arrStudent
+       Student[] arrStudent = heapSort(studentHeap);
+       //arrStudent = heapSort(maxStudent);
 
-   }
+       //* Outputs the students sorted by GPA in descending order.
+       System.out.println('\n' + "Students descending sort by GPA:");
+       for(Student newStudent: arrStudent) {
+           System.out.println(newStudent);
+       } 
+       //Student[] student = arrStudent;
+       //System.out.println(student);
+    }
    
 /** 
-* !Output the students sorted by GPA in descending order.
+* 
 * !public static Student[] heapSort(Heap<Student> studentHeap)
 * !You should do the following in the heapSort method
-*   X 1. Using the clone(...) method in the class Heap, instantiate a new Heap<Student> assigning a copy of heapStudent
-*   X 2. Instantiate an array of Student with the same size as studentHeap
-*   X 3. From your copy of studentHeap, remove each Student placing it in the array
-*   X 4. Return the array
+*   ✔ 1. Using the clone(...) method in the class Heap, instantiate a new Heap<Student> assigning a copy of heapStudent
+*   ✔ 2. Instantiate an array of Student with the same size as studentHeap
+*   ✔ 3. From your copy of studentHeap, remove each Student placing it in the array
+*   ✔ 4. Return the array
 */
-  //* public static Student[] heapSort(Heap<Student> studentHeap) {}
+   public static Student[] heapSort(Heap<Student> studentHeap) {
+       Heap<Student> heapStudent = new Heap<>(studentHeap);
+       int i = 0; 
+       //* Instantiates an array of Student with the same size as studentHeap
+       Student[] arrStudent = new Student[heapStudent.size()];
+       
+       //* Removes each student placing it in the array from the copy of studentHeap 
+       while(heapStudent.isEmpty() != true) {
+        arrStudent[i] = heapStudent.remove(); i++;
+       }
+       //* Returns the array Student[] arrStudent
+       return arrStudent;
+   }
    
    private static void readInData(PriorityQueue<Student> students) {
         // Open text file
